@@ -14,12 +14,19 @@ import { authService } from '../services/api'
 export default {
   name: 'AuthCallback',
   mounted() {
-    const token = this.$route.query.token
+    // Récupère le token soit dans la query (?token=), soit dans le hash (#token=)
+    const searchToken = new URLSearchParams(window.location.search).get('token')
+    const hashToken = new URLSearchParams(window.location.hash.replace(/^#/, '?')).get('token')
+    const token = searchToken || hashToken
+
     if (token) {
       authService.setToken(token)
       this.$router.push('/home')
     } else {
-      this.$router.push('/login?error=google_auth_failed')
+      // Pas de token reçu : renvoyer vers login après un bref délai
+      setTimeout(() => {
+        this.$router.push('/login?error=google_auth_failed')
+      }, 800)
     }
   }
 }

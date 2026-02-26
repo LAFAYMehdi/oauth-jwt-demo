@@ -1,56 +1,56 @@
 <template>
-  <div class="min-h-screen bg-green-950 flex items-center justify-center p-4">
-    <div class="bg-green-900 border border-green-800 rounded-2xl shadow-2xl p-8 w-full max-w-md">
+  <div class="min-h-screen bg-lime-50 flex items-center justify-center p-4">
+    <div class="bg-white border border-lime-200 rounded-2xl shadow-xl p-8 w-full max-w-md">
 
-      <h1 class="text-2xl font-bold text-green-50 text-center mb-7">🔐 Connexion</h1>
+      <h1 class="text-2xl font-bold text-slate-900 text-center mb-7">Connexion</h1>
 
-      <div v-if="error" class="mb-4 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">{{ error }}</div>
-      <div v-if="success" class="mb-4 px-4 py-3 rounded-lg bg-green-500/10 border border-green-400/30 text-green-300 text-sm">{{ success }}</div>
+      <div v-if="error" class="mb-4 px-4 py-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">{{ error }}</div>
+      <div v-if="success" class="mb-4 px-4 py-3 rounded-lg bg-lime-100 border border-lime-300 text-lime-900 text-sm">{{ success }}</div>
 
       <form @submit.prevent="handleLogin">
         <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-green-300 mb-1.5">Email</label>
+          <label for="email" class="block text-sm font-medium text-slate-800 mb-1.5">Email</label>
           <input
             type="email"
             id="email"
             v-model="form.email"
             placeholder="jean.dupont@exemple.fr"
             required
-            class="w-full px-4 py-3 bg-green-950 border border-green-700 rounded-lg text-green-50 placeholder-green-700 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all text-sm"
+            class="w-full px-4 py-3 bg-white border border-lime-300 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:border-lime-500 focus:ring-2 focus:ring-lime-500/25 transition-all text-sm"
           />
         </div>
 
         <div class="mb-5">
-          <label for="password" class="block text-sm font-medium text-green-300 mb-1.5">Mot de passe</label>
+          <label for="password" class="block text-sm font-medium text-slate-800 mb-1.5">Mot de passe</label>
           <input
             type="password"
             id="password"
             v-model="form.password"
             placeholder="••••••••"
             required
-            class="w-full px-4 py-3 bg-green-950 border border-green-700 rounded-lg text-green-50 placeholder-green-700 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all text-sm"
+            class="w-full px-4 py-3 bg-white border border-lime-300 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:border-lime-500 focus:ring-2 focus:ring-lime-500/25 transition-all text-sm"
           />
         </div>
 
         <button type="submit" :disabled="loading"
-          class="w-full py-3 bg-green-600 hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-green-500/30 cursor-pointer border-none text-sm">
+          class="w-full py-3 bg-lime-600 hover:bg-lime-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-lime-600/30 cursor-pointer border-none text-sm">
           {{ loading ? 'Connexion...' : 'Se connecter' }}
         </button>
       </form>
 
-      <div class="text-center mt-5 text-sm text-green-600">
-        Pas encore de compte ? <router-link to="/register" class="text-green-400 hover:text-green-300 font-semibold">S'inscrire</router-link>
+      <div class="text-center mt-5 text-sm text-slate-700">
+        Pas encore de compte ? <router-link to="/register" class="text-lime-700 hover:text-lime-900 font-semibold">S'inscrire</router-link>
       </div>
 
-      <div class="flex items-center my-6 text-green-700">
-        <div class="flex-1 border-t border-green-800"></div>
+      <div class="flex items-center my-6 text-lime-600">
+        <div class="flex-1 border-t border-lime-200"></div>
         <span class="px-4 text-xs uppercase tracking-wider font-medium">OU</span>
-        <div class="flex-1 border-t border-green-800"></div>
+        <div class="flex-1 border-t border-lime-200"></div>
       </div>
 
       <div class="flex flex-col gap-3">
         <button @click="signInWithGoogle" type="button"
-          class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-lg border border-gray-200 transition-all hover:shadow-md text-sm cursor-pointer">
+          class="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white hover:bg-lime-50 text-gray-700 font-medium rounded-lg border border-lime-200 transition-all hover:shadow-md text-sm cursor-pointer">
           <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
             <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -77,13 +77,13 @@
         </button>
       </div>
 
-      <div class="mt-6 p-4 rounded-xl bg-green-950/80 border border-green-700/40">
-        <h3 class="text-green-400 font-semibold text-sm mb-2">💡 Démo JWT</h3>
-        <p class="text-green-600 text-xs leading-relaxed">
-          ✅ Après connexion, un <strong class="text-green-300">Access Token</strong> JWT est stocké<br>
-          ✅ Ce token est envoyé dans le header <code class="bg-green-950 px-1 rounded border border-green-700 text-green-400">Authorization: Bearer ...</code><br>
-          ✅ Le serveur vérifie le token sans consulter de session
-        </p>
+      <div class="mt-6 p-4 rounded-xl bg-lime-50 border border-lime-300/40">
+        <h3 class="text-slate-800 font-semibold text-sm mb-2">Démo JWT</h3>
+        <ul class="text-slate-700 text-xs leading-relaxed space-y-1 list-disc list-inside">
+          <li>Après connexion, un <strong class="text-slate-900">Access Token</strong> JWT est stocké</li>
+          <li>Le token est envoyé dans <code class="bg-lime-50 px-1 rounded border border-lime-300 text-slate-700">Authorization: Bearer ...</code></li>
+          <li>Le serveur vérifie le token sans session serveur</li>
+        </ul>
       </div>
 
     </div>

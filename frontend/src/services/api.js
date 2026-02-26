@@ -75,6 +75,20 @@ export const authService = {
     return !!localStorage.getItem('accessToken');
   },
 
+  // Sauvegarder le token (utilisé par le callback OAuth)
+  setToken(token) {
+    localStorage.setItem('accessToken', token);
+    // Décoder le payload du JWT pour stocker les infos utilisateur
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      if (payload) {
+        localStorage.setItem('user', JSON.stringify(payload));
+      }
+    } catch (e) {
+      console.error('Erreur lors du décodage du token:', e);
+    }
+  },
+
   // Obtenir l'utilisateur actuel
   getCurrentUser() {
     const userStr = localStorage.getItem('user');
