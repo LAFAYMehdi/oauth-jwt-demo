@@ -10,18 +10,19 @@
       <form @submit.prevent="handleRegister">
         <div class="mb-4">
           <label for="name" class="block text-sm font-medium text-green-300 mb-1.5">Nom complet</label>
-          <input type="text" id="name" v-model="fo          <input type="text" id="name" v-model="fo          <input type="text" id="name" v-model="fo          <input type="text" id="name" v-model="fo          <input type="text" id= fo          <ineen-400 focus:ring-2 focus:ring-green-400/20 transition-all text-sm" />
+          <input type="text" id="name" v-model="form.name" placeholder="Jean Dupont" required
+            class="w-full px-4 py-3 bg-green-950 border border-green-700 rounded-lg text-green-50 placeholder-green-700 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all text-sm" />
         </div>
 
         <div class="mb-4">
           <label for="email" class="block text-sm font-medium text-green-300 mb-1.5">Email</label>
-          <input type="email" id="email" v-model="form.email" placeholder="jean.dupont@example.com" required
+          <input type="email" id="email" v-model="form.email" placeholder="jean.dupont@exemple.fr" required
             class="w-full px-4 py-3 bg-green-950 border border-green-700 rounded-lg text-green-50 placeholder-green-700 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all text-sm" />
         </div>
 
         <div class="mb-5">
           <label for="password" class="block text-sm font-medium text-green-300 mb-1.5">Mot de passe</label>
-          <input type="password" id="password" v-model="form.password" placeholder="Min 6 caractères" required minlength="6"
+          <input type="password" id="password" v-model="form.password" placeholder="•••••••• (min. 6 caractères)" required minlength="6"
             class="w-full px-4 py-3 bg-green-950 border border-green-700 rounded-lg text-green-50 placeholder-green-700 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all text-sm" />
         </div>
 

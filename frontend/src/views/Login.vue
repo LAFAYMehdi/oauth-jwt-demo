@@ -9,7 +9,14 @@
 
       <form @submit.prevent="handleLogin">
         <div class="mb-4">
-          <l          <l          <l          <l          <l          <l          <l          <el>           <          <l          <l          <l          <l          <l          <l          <l          <el>           <          <l          <l          <l          <l          <l          <l          <l          <el>           <          <l     d-l          en-50 placeholder-green-700 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all text-sm"
+          <label for="email" class="block text-sm font-medium text-green-300 mb-1.5">Email</label>
+          <input
+            type="email"
+            id="email"
+            v-model="form.email"
+            placeholder="jean.dupont@exemple.fr"
+            required
+            class="w-full px-4 py-3 bg-green-950 border border-green-700 rounded-lg text-green-50 placeholder-green-700 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all text-sm"
           />
         </div>
 
@@ -19,7 +26,7 @@
             type="password"
             id="password"
             v-model="form.password"
-            placeholder="Votre mot de passe"
+            placeholder="••••••••"
             required
             class="w-full px-4 py-3 bg-green-950 border border-green-700 rounded-lg text-green-50 placeholder-green-700 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all text-sm"
           />
